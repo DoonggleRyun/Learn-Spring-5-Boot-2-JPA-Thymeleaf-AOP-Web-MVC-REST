@@ -30,14 +30,13 @@ public class HomeController {
 //		return "result";
 //	}
 
-	
+	//Insert data submitted in the form to the database.
 	@RequestMapping(value="/create", method = RequestMethod.POST)
 	public String processFormData(User user, RedirectAttributes attr) {	
 		//RedirectAttributes <- this was introduced in spring 4.
 		//This is a much better way to redirect the data attributes
 		
-	
-		//Insert data submitted in the form to the database.
+		attr.addFlashAttribute("user", user);
 		return "redirect:/display";
 	}
 	
